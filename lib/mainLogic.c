@@ -29,6 +29,20 @@ int pause() {
     else return 0;
 }
 
+int countLine(char file[]){
+	FILE* cek;
+    int i = 0;
+    int cs;
+
+    cek = fopen(file, "r");
+    while (!feof(cek)) {               //Loop hingga EOF  1
+        cs = fgetc(cek);               //simpan stream char ke c
+        if (cs == '\n') i++;          //Jika dideteksi \n , tambah i
+    }
+    fclose(cek);
+    return i;
+}
+
 void clear() {
 #ifdef _WIN32
     std : system("cls");

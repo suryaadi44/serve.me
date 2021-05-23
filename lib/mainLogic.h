@@ -8,6 +8,7 @@
 void header();
 void clear();
 int pause();
+int countLine(char file[]);
 
 struct tm* waktu;
 
