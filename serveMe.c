@@ -36,15 +36,18 @@ void mainMenu() {
         switch (pil) {
         case 1:
             enqeueue();
+            lanjut = pause();
             break;
         case 2:
             dequeue();
             break;
         case 3:
             search();
+            lanjut = pause();
             break;
         case 4:
             viewQueue();
+            lanjut = pause();
             break;
         case 5:
             settingMenu();
