@@ -1,10 +1,12 @@
 #include "lib/mainLogic.h"
+#include "lib/default.h"
 
 void mainMenu();
 void settingMenu();
 
 void main() {
-    
+    directoryCheck();
+    fileCheck();
     mainMenu();
 }
 
