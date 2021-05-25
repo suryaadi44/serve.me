@@ -20,7 +20,7 @@ struct tm* waktu;
 
 typedef struct menu {
     int id;
-    char nama[20];
+    char nama[22];
     int price;
     struct menu* left, * right;
 } menu;
@@ -28,7 +28,7 @@ typedef struct menu {
 typedef struct pesanan {
     int id;
     int type;
-    char message[200];
+    int qty;
     struct pesanan* next;
 } pesanan;
 
@@ -36,8 +36,14 @@ typedef struct pelanggan {
     int id;
     int meja;
     char nama[20];
+    int jumlah;
     struct pesanan* head;
     struct pelanggan* next;
 } pelanggan;
 
+extern menu* foodRoot;
+extern menu* drinkRoot;
+extern pelanggan* head;
+extern int counter;
+ 
 #endif

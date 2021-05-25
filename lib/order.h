@@ -2,19 +2,18 @@
 #define ORDER_H_
 
 #include "mainLogic.h"
+#include "menu.h"
 
 pelanggan* inputPesanan();
+pelanggan* searchByID(int id);
+pelanggan* searchByName(char nama[]);
 
 void enqueue(pelanggan* new);
 void dequeue();
 void search();
 void viewQueue();
-void viewMenu();
+void printQueue(pelanggan* temp);
 
-void printFood();
-void printDrink();
-void view();
-void loadMenu();
-void menuTree();
+
 
 #endif

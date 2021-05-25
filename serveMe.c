@@ -1,11 +1,22 @@
 #include "lib/mainLogic.h"
 #include "lib/default.h"
 #include "lib/order.h"
+#include "lib/menu.h"
 
 void mainMenu();
 void settingMenu();
 
+menu* foodRoot;
+menu* drinkRoot;
+pelanggan* head;
+int counter;
+
 void main() {
+    foodRoot = NULL;
+    drinkRoot = NULL;
+    head = NULL;
+    counter = 1;
+    
     directoryCheck();
     fileCheck();
 
@@ -29,8 +40,8 @@ void mainMenu() {
         printf("  3. Cari Pesanan\n");
         printf("  4. Lihat Antrian\n");
         printf("  5. Lihat Daftar Menu\n");
-        printf("  5. Pengaturan\n");
-        printf("  6. Keluar \n");
+        printf("  6. Pengaturan\n");
+        printf("  7. Keluar \n");
         printf("==============================================================\n");
         printf(" Pilihan : ");
         fflush(stdin);
@@ -39,10 +50,11 @@ void mainMenu() {
         switch (pil) {
         case 1:
             enqueue(inputPesanan());
-            lanjut = pause();
+            //lanjut = pause();
             break;
         case 2:
             dequeue();
+            lanjut = pause();
             break;
         case 3:
             search();

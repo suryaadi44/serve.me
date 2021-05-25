@@ -21,12 +21,12 @@ void header(){
 
 int pause() {
     char pil;
-    printf("\nLanjutkan? (y/t) : ");
+    printf("\n Lanjutkan? (y/t) : ");
     fflush(stdin);
     scanf("%c", &pil);
 
     if (pil == 'y') return 1;
-    else return 0;
+    return 0;
 }
 
 int countLine(char file[]){
