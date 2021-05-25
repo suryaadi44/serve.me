@@ -1,5 +1,6 @@
 #include "lib/mainLogic.h"
 #include "lib/default.h"
+#include "lib/order.h"
 
 void mainMenu();
 void settingMenu();
@@ -7,6 +8,9 @@ void settingMenu();
 void main() {
     directoryCheck();
     fileCheck();
+
+    loadMenu();
+
     mainMenu();
 }
 
@@ -20,22 +24,21 @@ void mainMenu() {
         printf("       Aplikasi Pemesanan Makanan dan Minuman Serve.Me        \n");
         printf("==============================================================\n");
         printf(" Menu Utama : \n");
-        printf("  1. Tambah Pelanggan\n");
-        printf("  2. Bayar Tagihan\n");
-        printf("  3. Cari Pelanggan\n");
+        printf("  1. Tambah Pesanan\n");
+        printf("  2. Proses Pesanan\n");
+        printf("  3. Cari Pesanan\n");
         printf("  4. Lihat Antrian\n");
         printf("  5. Lihat Daftar Menu\n");
-        pritnf("  5. Pengaturan\n");
+        printf("  5. Pengaturan\n");
         printf("  6. Keluar \n");
         printf("==============================================================\n");
         printf(" Pilihan : ");
         fflush(stdin);
         scanf("%d", &pil);
-        printf("==============================================================\n");
 
         switch (pil) {
         case 1:
-            enqeueue();
+            enqueue(inputPesanan());
             lanjut = pause();
             break;
         case 2:
@@ -50,6 +53,10 @@ void mainMenu() {
             lanjut = pause();
             break;
         case 5:
+            viewMenu();
+            lanjut = pause();
+            break;
+        case 6:
             settingMenu();
             break;
         default:
@@ -80,14 +87,14 @@ void settingMenu() {
 
         switch (pil) {
         case 1:
-            addMenu();
+            //addMenu();
             lanjut = pause();
             break;
         case 2:
-            editMenu();
+            //editMenu();
             break;
         case 3:
-            delMenu();
+            //delMenu();
             break;
         default:
             break;
