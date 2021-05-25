@@ -10,8 +10,10 @@ void loadMenu();
 void menuTree(menu* node, menu** root);
 void inorder(menu* now);
 menu* searchMenu(menu* root, int id);
+void deleteMenuTree(menu *root);
 
-
-
+void addMenu();
+void delMenu();
+void editMenu();
 
 #endif

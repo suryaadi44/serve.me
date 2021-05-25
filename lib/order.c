@@ -68,6 +68,7 @@ void enqueue(pelanggan* new) {
 
 void dequeue() {
     pelanggan* temp = head;
+    pesanan* del;
 
     printf("==============================================================\n");
     if (temp == NULL) {
@@ -76,8 +77,15 @@ void dequeue() {
     }
 
     printQueue(temp);
-
     temp = head->next;
+
+    del = temp->head;
+    while(temp->head){
+        temp->head = temp->head->next;
+        free(del);
+        del = temp->head;
+    }
+    
     free(head);
     head = temp;
 }

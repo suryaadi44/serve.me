@@ -14,6 +14,4 @@ void search();
 void viewQueue();
 void printQueue(pelanggan* temp);
 
-
-
 #endif

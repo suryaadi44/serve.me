@@ -74,7 +74,7 @@ void mainMenu() {
         default:
             break;
         }
-    } while (pil != 6 && lanjut == 1);
+    } while (pil != 7 && lanjut == 1);
 }
 
 void settingMenu() {
@@ -95,18 +95,17 @@ void settingMenu() {
         printf(" Pilihan : ");
         fflush(stdin);
         scanf("%d", &pil);
-        printf("==============================================================\n");
 
         switch (pil) {
         case 1:
-            //addMenu();
+            addMenu();
             lanjut = pause();
             break;
         case 2:
-            //editMenu();
+            editMenu();
             break;
         case 3:
-            //delMenu();
+            delMenu();
             break;
         default:
             break;
