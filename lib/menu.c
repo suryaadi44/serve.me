@@ -129,15 +129,16 @@ void addMenu() {
     if (pil == 1) {
         db = fopen(FOOD_DB_PATH, "a");
         max = countLine(FOOD_DB_PATH);
+        new->id = max + 1;
         menuTree(new, &foodRoot);
     } else {
         db = fopen(DRINK_DB_PATH, "a");
         max = countLine(DRINK_DB_PATH);
+        new->id = max + 1;
         menuTree(new, &drinkRoot);
     }
 
-    
-    fprintf(db, "%d,\"%s\",%d\n", max + 1, new->nama, new->price);
+    fprintf(db, "%d,\"%s\",%d\n", new->id, new->nama, new->price);
     fclose(db);
 }
 
@@ -202,8 +203,8 @@ void editMenu() {
     FILE* db, * temp;
     int pil, max, edit;
 
-    menu read;
-    menu new;
+    menu read, new;
+    menu* editNode = NULL;
 
     printf("==============================================================\n");
     printf(" Edit Menu :\n");
@@ -233,13 +234,18 @@ void editMenu() {
         db = fopen(FOOD_DB_PATH, "r");
         temp = fopen(TEMP_FOOD_DB_PATH, "a");
         max = countLine(FOOD_DB_PATH);
-        deleteMenuTree(foodRoot);
+        editNode = searchMenu(foodRoot, edit);
+        //deleteMenuTree(foodRoot);
     } else {
         db = fopen(DRINK_DB_PATH, "r");
         temp = fopen(TEMP_DRINK_DB_PATH, "a");
         max = countLine(DRINK_DB_PATH);
-        deleteMenuTree(drinkRoot);
+        editNode = searchMenu(drinkRoot, edit);
+        //deleteMenuTree(drinkRoot);
     }
+    
+    strcpy(editNode->nama,new.nama);
+    editNode->price = new.price;
 
     int line = 1;
     for (int i = 0; i < max; i++) {
@@ -270,6 +276,6 @@ void deleteMenuTree(menu* root) {
 
     deleteMenuTree(root->left);
     deleteMenuTree(root->right);
-    
+
     free(root);
 }

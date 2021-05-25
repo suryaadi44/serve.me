@@ -106,6 +106,7 @@ void settingMenu() {
             break;
         case 3:
             delMenu();
+            loadMenu();
             break;
         default:
             break;
