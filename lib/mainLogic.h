@@ -7,9 +7,9 @@
 #include <time.h> 
 
 #define FOOD_DB_PATH "./db_menu/food_menu.csv"
-#define TEMP_FOOD_DB_PATH "./db_menu/temp.csv"
+#define TEMP_FOOD_DB_PATH "./db_menu/foodTemp.csv"
 #define DRINK_DB_PATH "./db_menu/drink_menu.csv"
-#define TEMP_DRINK_DB_PATH "./db_menu/temp.csv"
+#define TEMP_DRINK_DB_PATH "./db_menu/drinkTemp.csv"
 
 void header();
 void clear();
