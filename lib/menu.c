@@ -42,6 +42,29 @@ void inorder(menu* now) {
     }
 }
 
+void sortMenu() {
+    sort(foodRoot, TEMP_FOOD_DB_PATH);
+    sort(drinkRoot, TEMP_DRINK_DB_PATH);
+
+    remove(DRINK_DB_PATH);
+    remove(FOOD_DB_PATH);
+    rename(TEMP_DRINK_DB_PATH, DRINK_DB_PATH);
+    rename(TEMP_FOOD_DB_PATH, FOOD_DB_PATH);
+}
+
+void sort(menu* now, char tempFile[]) {
+    FILE* temp;
+
+    temp = fopen(tempFile, "w");
+    int line = countLine(tempFile);
+    if (now != NULL) {
+        inorder(now->left);
+        fprintf(temp, "%d,\"%s\",%d\n", line + 1, now->nama, now->price);
+        fclose(temp);
+        inorder(now->right);
+    }
+}
+
 menu* searchMenu(menu* root, int id) {
     if (root == NULL || root->id == id) {
         return root;
@@ -77,6 +100,8 @@ void loadMenu() {
 
     fclose(drink);
     fclose(food);
+
+    sortMenu();
 }
 
 void menuTree(menu* node, menu** root) {
