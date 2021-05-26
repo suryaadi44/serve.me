@@ -7,6 +7,7 @@ int viewMenu() {
     printf("  1. Makanan\n");
     printf("  2. Minuman\n");
     printf(" Pilih : ");
+    fflush(stdin);
     scanf("%d", &pil);
     printf("==============================================================\n");
 
@@ -196,11 +197,13 @@ void delMenu() {
         temp = fopen(TEMP_FOOD_DB_PATH, "a");
         max = countLine(FOOD_DB_PATH);
         deleteMenuTree(foodRoot);
+        foodRoot = NULL;
     } else {
         db = fopen(DRINK_DB_PATH, "r");
         temp = fopen(TEMP_DRINK_DB_PATH, "a");
         max = countLine(DRINK_DB_PATH);
         deleteMenuTree(drinkRoot);
+        drinkRoot = NULL;
     }
 
     int line = 1;
