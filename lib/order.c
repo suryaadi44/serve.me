@@ -72,13 +72,13 @@ void dequeue() {
 
     printf("==============================================================\n");
     if (temp == NULL) {
-        printf("\n Antrian Kosong");
+        printf("                        Antrian Kosong                        \n");
+        printf("==============================================================\n");
         return;
     }
 
     printQueue(temp);
-    temp = head->next;
-
+    
     del = temp->head;
     while(temp->head){
         temp->head = temp->head->next;
@@ -86,6 +86,7 @@ void dequeue() {
         del = temp->head;
     }
     
+    temp = head->next;
     free(head);
     head = temp;
 }

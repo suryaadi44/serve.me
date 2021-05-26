@@ -6,10 +6,6 @@ void directoryCheck() {
     if (stat("db_menu", &st) == -1) {
         mkdir("db_menu");
     }
-
-    if (stat("tx_log", &st) == -1) {
-        mkdir("tx_log");
-    }
 }
 
 void fileCheck(){

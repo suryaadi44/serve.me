@@ -243,8 +243,8 @@ void editMenu() {
         editNode = searchMenu(drinkRoot, edit);
         //deleteMenuTree(drinkRoot);
     }
-    
-    strcpy(editNode->nama,new.nama);
+
+    strcpy(editNode->nama, new.nama);
     editNode->price = new.price;
 
     int line = 1;
@@ -272,10 +272,9 @@ void editMenu() {
 }
 
 void deleteMenuTree(menu* root) {
-    if (root == NULL) return;
-
-    deleteMenuTree(root->left);
-    deleteMenuTree(root->right);
-
-    free(root);
+    if (root != NULL) {
+        deleteMenuTree(root->left);
+        deleteMenuTree(root->right);
+        free(root);
+    }
 }
