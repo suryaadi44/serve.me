@@ -55,24 +55,24 @@ void sortMenu() {
 void sort(menu* now, char tempFile[]) {
     FILE* temp;
 
-    temp = fopen(tempFile, "w");
-    int line = countLine(tempFile);
     if (now != NULL) {
-        inorder(now->left);
-        fprintf(temp, "%d,\"%s\",%d\n", line + 1, now->nama, now->price);
+        sort(now->left, tempFile);
+       
+        temp = fopen(tempFile, "a+");
+        now->id =  countLine(tempFile) + 1;
+        fprintf(temp, "%d,\"%s\",%d\n", now->id, now->nama, now->price);
         fclose(temp);
-        inorder(now->right);
+
+        sort(now->right, tempFile);
     }
 }
 
 menu* searchMenu(menu* root, int id) {
-    if (root == NULL || root->id == id) {
+    if (root == NULL || root->id == id) 
         return root;
-    }
-
+    
     if (root->id < id)
         return searchMenu(root->right, id);
-
     return searchMenu(root->left, id);
 }
 
@@ -100,7 +100,7 @@ void loadMenu() {
 
     fclose(drink);
     fclose(food);
-
+    
     sortMenu();
 }
 
@@ -114,7 +114,7 @@ void menuTree(menu* node, menu** root) {
 
     menu* temp = *root;
     while (1)
-        if (temp->id > node->id) {
+        if (strcmp(temp->nama, node->nama) > 0) {
             if (temp->left == NULL) {
                 temp->left = node;
                 return;
@@ -165,6 +165,7 @@ void addMenu() {
 
     fprintf(db, "%d,\"%s\",%d\n", new->id, new->nama, new->price);
     fclose(db);
+    sortMenu();
 }
 
 void delMenu() {
@@ -277,7 +278,6 @@ void editMenu() {
         fscanf(db, "%d,\"%[^\"]\",%d", &read.id, read.nama, &read.price);
         if (read.id == edit)
             fprintf(temp, "%d,\"%s\",%d\n", read.id, new.nama, new.price);
-
         else
             fprintf(temp, "%d,\"%s\",%d\n", read.id, read.nama, read.price);
     }
@@ -294,6 +294,7 @@ void editMenu() {
 
     remove(DRINK_DB_PATH);
     rename(TEMP_DRINK_DB_PATH, DRINK_DB_PATH);
+    sortMenu();
 }
 
 void deleteMenuTree(menu* root) {
