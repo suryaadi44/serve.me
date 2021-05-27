@@ -13,7 +13,7 @@ pelanggan* inputPesanan() {
     scanf("\n");
     scanf("%[^\n]", &new->nama);
     printf("  Meja      : ");
-    fflush(stdin);
+    scanf("\n");
     scanf("%d", &new->meja);
     new->head = NULL;
     new->next = NULL;
@@ -25,10 +25,10 @@ pelanggan* inputPesanan() {
         order->type = viewMenu();
 
         printf("  Pilihan   : ");
-        fflush(stdin);
+        scanf("\n");
         scanf("%d", &order->id);
         printf("  Banyaknya : ");
-        fflush(stdin);
+        scanf("\n");
         scanf("%d", &order->qty);
 
         if (temp == NULL) new->head = order;
@@ -130,7 +130,7 @@ void search() {
     printf("  1. ID \n");
     printf("  2. Nama\n");
     printf(" Pilih : ");
-    fflush(stdin);
+    scanf("\n");
     scanf("%d", &pil);
 
     printf("==============================================================\n");
@@ -138,13 +138,13 @@ void search() {
     if (pil == 1) {
         int id;
         printf(" Masukan ID : ");
-        fflush(stdin);
+        scanf("\n");
         scanf("%d", &id);
         buffer = searchByID(id);
     } else {
         char nama[22];
         printf(" Mauskan Nama : ");
-        fflush(stdin);
+        scanf("\n");
         scanf("%[^\n]", nama);
         buffer = searchByName(nama);
     }
