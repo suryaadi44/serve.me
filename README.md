@@ -1,4 +1,4 @@
-# serve.me
+# Serve.Me
 
 ```
     _____                       __  __               
@@ -9,7 +9,15 @@
   |_____/ \___|_|    \_/ \___(_)_|  |_|\___| 
 ```
 
+---
+
 Aplikasi Pemesanan Menu Restoran Sebagai Final Project Program Studi Struktur Data Semester 2.
+
+By :  
+- I Gusti Ayu Purnami Pinatih (2008561029)
+- I Komang Surya Adinandika (2008561040)
+
+---
 
 ## **Cara Menjalankan Program**
 
@@ -35,3 +43,4 @@ Aplikasi Pemesanan Menu Restoran Sebagai Final Project Program Studi Struktur Da
 >5. Buka Semua File ke Text Editor
 >6. Build lalu Compile dan Run 
 
+---
