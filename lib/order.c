@@ -10,8 +10,8 @@ pelanggan* inputPesanan() {
     printf("==============================================================\n");
     printf("\n Masukan Data\n");
     printf("  Nama      : ");
-    fflush(stdin);
-    scanf("%[^\n]%*c", &new->nama);
+    scanf("\n");
+    scanf("%[^\n]", &new->nama);
     printf("  Meja      : ");
     fflush(stdin);
     scanf("%d", &new->meja);

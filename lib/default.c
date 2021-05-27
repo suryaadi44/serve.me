@@ -4,7 +4,7 @@ void directoryCheck() {
     struct stat st = { 0 };
 
     if (stat("db_menu", &st) == -1) {
-        mkdir("db_menu");
+        mkdir("db_menu", 0777);
     }
 }
 

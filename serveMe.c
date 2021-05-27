@@ -44,7 +44,7 @@ void mainMenu() {
         printf("  7. Keluar \n");
         printf("==============================================================\n");
         printf(" Pilihan : ");
-        fflush(stdin);
+        scanf("\n");
         scanf("%d", &pil);
 
         switch (pil) {
@@ -93,7 +93,7 @@ void settingMenu() {
         printf("  4. Kembali\n");
         printf("==============================================================\n");
         printf(" Pilihan : ");
-        fflush(stdin);
+        scanf("\n");
         scanf("%d", &pil);
 
         switch (pil) {

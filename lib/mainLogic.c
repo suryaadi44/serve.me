@@ -22,7 +22,7 @@ void header(){
 int pause() {
     char pil;
     printf("\n Lanjutkan? (y/t) : ");
-    fflush(stdin);
+    scanf("\n");
     scanf("%c", &pil);
 
     if (pil == 'y') return 1;

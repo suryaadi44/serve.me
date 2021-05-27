@@ -7,7 +7,7 @@ int viewMenu() {
     printf("  1. Makanan\n");
     printf("  2. Minuman\n");
     printf(" Pilih : ");
-    fflush(stdin);
+    scanf("\n");
     scanf("%d", &pil);
     printf("==============================================================\n");
 
@@ -145,10 +145,10 @@ void addMenu() {
     printf("==============================================================\n");
     printf(" Masukan Menu Baru : \n");
     printf("  Nama Menu : ");
-    fflush(stdin);
+    scanf("\n");
     scanf("%[^\n]", new->nama);
     printf("  Harga     : ");
-    fflush(stdin);
+    scanf("\n");
     scanf("%d", &new->price);
     printf("==============================================================\n");
 
@@ -252,10 +252,10 @@ void editMenu() {
     scanf("%d", &edit);
     printf(" Masukan Menu Baru : \n");
     printf("  Nama Menu : ");
-    fflush(stdin);
+    scanf("\n");
     scanf("%[^\n]", new.nama);
     printf("  Harga     : ");
-    fflush(stdin);
+    scanf("\n");
     scanf("%d", &new.price);
     printf("==============================================================\n");
 
